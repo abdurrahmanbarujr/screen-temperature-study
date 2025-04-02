@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Temperature Study: Effects on Visual Performance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-container">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="temp-gradient">SCT</span>
+                </div>
+                <div class="logo-text">
+                    <h1>Screen Temperature Study</h1>
+                    <p class="tagline">Effects on Visual Performance & Cognitive Processing</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#overview" class="nav-link active">Overview</a></li>
+                    <li><a href="#methods" class="nav-link">Methods</a></li>
+                    <li><a href="#direct-effects" class="nav-link">Direct Effects</a></li>
+                    <li><a href="#mediation-effects" class="nav-link">Mediation</a></li>
+                    <li><a href="#conclusions" class="nav-link">Conclusions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Screen Temperature Study</h1>
+                <h2>The Impact on Visual Performance & Cognitive Processing</h2>
+                <div class="color-temp-showcase">
+                    <div class="temp-sample warm">
+                        <div class="temp-display" style="background: linear-gradient(to right, rgba(255,87,34,0.9), rgba(255,87,34,0.7));">
+                            <span>1900K</span>
+                        </div>
+                        <p>Warm</p>
+                    </div>
+                    <div class="temp-sample neutral">
+                        <div class="temp-display" style="background: linear-gradient(to right, rgba(255,183,77,0.9), rgba(255,183,77,0.7));">
+                            <span>4200K</span>
+                        </div>
+                        <p>Neutral</p>
+                    </div>
+                    <div class="temp-sample cool">
+                        <div class="temp-display" style="background: linear-gradient(to right, rgba(26,153,255,0.9), rgba(26,153,255,0.7));">
+                            <span>6500K</span>
+                        </div>
+                        <p>Cool</p>
+                    </div>
+                </div>
+                <a href="#overview" class="cta-button">
+                    <span>Explore Findings</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="overview" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Study Overview</h2>
+                <div class="overview-grid">
+                    <div class="overview-text">
+                        <p>This study investigated how different screen color temperatures affect both subjective and objective aspects of visual performance and cognitive load. Using a repeated measures design, we examined how variations in screen color temperature (1900K, 4200K, and 6500K) impact eye tracking metrics, task performance, and subjective workload.</p>
+                        
+                        <p>Through comprehensive statistical analysis including regression modeling and mediation analysis, we've uncovered significant patterns showing how screen color temperature directly affects performance and how these effects are mediated by various eye metrics.</p>
+                    
+                        <div class="key-findings">
+                            <h3>Key Findings</h3>
+                            <ul>
+                                <li>Moderate color temperatures (4200K) optimize the balance between visibility and visual comfort</li>
+                                <li>Eye metrics serve as mediators of color temperature effects</li>
+                                <li>Participants showed consistent physiological responses to color temperature changes</li>
+                                <li>Starting condition significantly influences adaptation to different color temperatures</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-visuals">
+                        <div class="study-design-img">
+                            <img src="images/tlx_by_condition.png" alt="Study Design - TLX by Condition">
+                            <p class="img-caption">Figure 1: Study Design - Repeated Measures with Counterbalancing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-highlight">
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Participants</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Temperature Conditions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">67%</div>
+                        <div class="stat-label">Measures Follow Normal Distribution</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">TLX Measures Normally Distributed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="methods" class="content-section alt-bg">
+            <div class="container">
+                <h2 class="section-title">Research Methods</h2>
+                
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Participants</h3>
+                        <p>8 participants in a repeated measures design. Each participant experienced all three lighting conditions (1900K, 4200K, 6500K) in a counterbalanced order.</p>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Eye Tracking</h3>
+                        <p>Collected metrics on fixation count, fixation duration, blink patterns, and other eye movement behaviors across different screen color temperatures.</p>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Performance Tasks</h3>
+                        <p>Standardized reading and comprehension tasks to measure objective performance metrics across the different color temperature conditions.</p>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Workload Assessment</h3>
+                        <p>NASA TLX workload assessment to measure subjective workload and cognitive demands across different lighting conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="analysis-approach">
+                    <h3>Analysis Approach</h3>
+                    <div class="analysis-grid">
+                        <div class="analysis-item">
+                            <h4>Regression Analysis</h4>
+                            <p>Linear mixed models to identify direct effects of color temperature on performance measures while accounting for individual differences.</p>
+                        </div>
+                        <div class="analysis-item">
+                            <h4>Mediation Analysis</h4>
+                            <p>Testing whether eye metrics (fixation count, blink patterns) mediate the relationship between color temperature and performance outcomes.</p>
+                        </div>
+                        <div class="analysis-item">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="direct-effects" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Direct Effects of Color Temperature</h2>
+                
+                <div class="findings-grid">
+                    <div class="finding-text">
+                        <h3>Main Findings</h3>
+                        <p>Our regression analyses revealed significant direct effects of screen color temperature on both subjective and objective measures of visual performance.</p>
+                        
+                        <div class="key-results">
+                            <div class="result-item">
+                                <h4>TLX Workload Scores</h4>
+                                <p>Moderate color temperatures (4200K) resulted in significantly lower mental workload scores compared to both warmer (1900K) and cooler (6500K) temperatures.</p>
+                            </div>
+                            
+                            <div class="result-item">
+                                <h4>Test Performance</h4>
+                                <p>Test performance showed an inverted U-shaped relationship with color temperature, with optimal performance at moderate temperatures (4200K).</p>
+                            </div>
+                            
+                            <div class="result-item">
+                                <h4>Eye Metrics</h4>
+                                <p>Significant changes in fixation patterns and blink behaviors were observed across different color temperatures, with more stable metrics at moderate temperatures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finding-visuals">
+                        <div class="visual-tabs">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="tlx-plot">TLX Scores</button>
+                                <button class="tab-btn" data-tab="test-plot">Test Performance</button>
+                                <button class="tab-btn" data-tab="eye-plot">Eye Metrics</button>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tlx-plot">
+                                    <img src="images/tlx_by_condition.png" alt="TLX Scores by Color Temperature">
+                                    <p class="img-caption">Figure 2: TLX Workload Scores Across Color Temperature Conditions</p>
+                                </div>
+                                <div class="tab-pane" id="test-plot">
+                                    <img src="images/test_scores_by_condition.png" alt="Test Scores by Color Temperature">
+                                    <p class="img-caption">Figure 3: Test Performance Across Color Temperature Conditions</p>
+                                </div>
+                                <div class="tab-pane" id="eye-plot">
+                                    <img src="images/fixation_by_condition.png" alt="Fixation Patterns by Color Temperature">
+                                    <p class="img-caption">Figure 4: Fixation Count and Duration Across Color Temperature Conditions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="direct-effects-summary">
+                    <h3>Summary of Direct Effects</h3>
+                    <p>The direct effects analysis provides strong evidence that moderate color temperatures (around 4200K) optimize the balance between visibility and visual comfort for most users. Performance tends to decline at both lower (1900K) and higher (6500K) color temperatures, suggesting an optimal range for digital display settings.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mediation-effects" class="content-section alt-bg">
+            <div class="container">
+                <h2 class="section-title">Mediation Analysis</h2>
+                
+                <div class="mediation-intro">
+                    <p>Our mediation analysis investigated whether eye metrics serve as mediators of the relationship between screen color temperature and performance outcomes. This analysis helps explain the mechanisms through which color temperature affects visual performance.</p>
+                </div>
+                
+                <div class="findings-grid">
+                    <div class="finding-visuals">
+                        <div class="mediation-model">
+                            <img src="images/mediation_path_a.png" alt="Mediation Path A Model">
+                            <p class="img-caption">Figure 5: Mediation Path Model</p>
+                        </div>
+                    </div>
+                    
+                    <div class="finding-text">
+                        <h3>Key Mediation Findings</h3>
+                        
+                        <div class="key-results">
+                            <div class="result-item">
+                                <h4>Fixation Count as Mediator</h4>
+                                <p>Fixation count significantly mediated the relationship between color temperature and test performance, with a stronger mediation effect for warmer temperatures.</p>
+                            </div>
+                            
+                            <div class="result-item">
+                                <h4>Blink Patterns as Mediator</h4>
+                                <p>Blink frequency showed significant mediation effects, particularly for the relationship between cooler temperatures and subjective workload measures.</p>
+                            </div>
+                            
+                            <div class="result-item">
+                                <h4>Fixation Duration</h4>
+                                <p>Average fixation duration partially mediated the relationship between color temperature and cognitive load measures, with shorter durations associated with reduced workload.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mediation-plots">
+                    <h3>Mediation Effect Plots</h3>
+                    <div class="plot-carousel">
+                        <div class="carousel-item">
+                            <img src="images/mediation_path_a.png" alt="Mediation Path A">
+                            <p class="img-caption">Figure 6: Color Temperature → Eye Metrics (Path A)</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/mediation_path_b.png" alt="Mediation Path B">
+                            <p class="img-caption">Figure 7: Eye Metrics → Performance (Path B)</p>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/mediation_forest.png" alt="Mediation Forest Plot">
+                            <p class="img-caption">Figure 8: Forest Plot of Mediation Effects</p>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                        <div class="carousel-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section id="conclusions" class="content-section alt-bg">
+            <div class="container">
+                <h2 class="section-title">Conclusions & Implications</h2>
+                
+                <div class="conclusions-content">
+                    <div class="conclusion-text">
+                        <p>This study demonstrates that screen color temperature has consistent direct effects on both subjective and objective aspects of visual performance, with eye metrics serving as potential mediators of these effects. The most consistent pattern from our direct effects analysis suggests that moderate color temperatures (around 4200K) optimize the balance between visibility and visual comfort for most users, with performance declining at both lower (1900K) and higher (6500K) color temperatures.</p>
+                        
+                        <p>The direct effects established in our initial analyses provided a solid foundation for understanding the more complex relationships explored through mediation analysis. These direct relationships between color temperature and performance measures highlight the immediate practical relevance of our findings for display design and environmental lighting recommendations.</p>
+                    </div>
+                    
+                    <div class="implications">
+                        <h3>Practical Implications</h3>
+                        <div class="implication-grid">
+                            <div class="implication-item">
+                                <div class="implication-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <h4>Display Design</h4>
+                                <p>Optimal default settings for digital displays should center around 4200K for general use cases.</p>
+                            </div>
+                            
+                            <div class="implication-item">
+                                <div class="implication-icon">
+                                    <i class="fas fa-adjust"></i>
+                                </div>
+                                <h4>Adaptive Displays</h4>
+                                <p>Context-aware systems could adjust color temperature based on task complexity and individual user characteristics.</p>
+                            </div>
+                            
+                            <div class="implication-item">
+                                <div class="implication-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h4>Temporal Adaptation</h4>
+                                <p>Users adapt differently to color temperature changes based on their starting condition, suggesting the need for gradual transitions.</p>
+                            </div>
+                            
+                            <div class="implication-item">
+                                <div class="implication-icon">
+                                    <i class="fas fa-universal-access"></i>
+                                </div>
+                                <h4>Accessibility</h4>
+                                <p>Individual differences in response to color temperature highlight the importance of customizable display settings.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="future-directions">
+                        <h3>Future Research Directions</h3>
+                        <ul>
+                            <li>Larger sample studies to further validate and generalize these findings</li>
+                            <li>Investigation of long-term adaptation effects to different color temperatures</li>
+                            <li>Exploration of additional eye metrics as potential mediators</li>
+                            <li>Development and testing of adaptive display technologies based on these findings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>&copy; 2025 Screen Temperature Study</p>
+                <p>Research conducted as part of class project for Research Methodology</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#methods">Methods</a></li>
+                    <li><a href="#direct-effects">Direct Effects</a></li>
+                    <li><a href="#mediation-effects">Mediation</a></li>
+                    <li><a href="#conclusions">Conclusions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
