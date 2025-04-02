@@ -508,6 +508,12 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .chart-container {
     background: white;
     padding: 1rem;
@@ -546,6 +552,13 @@ a:hover {
 .tab-buttons {
     display: flex;
     border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.tab-buttons::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
 .tab-btn {
@@ -557,6 +570,15 @@ a:hover {
     color: #666;
     flex: 1;
     transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .tab-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        flex: 0 0 auto;
+    }
 }
 
 .tab-btn.active {
@@ -570,6 +592,12 @@ a:hover {
 
 .tab-content {
     padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .tab-content {
+        padding: 1rem;
+    }
 }
 
 .tab-pane {
@@ -733,6 +761,74 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
+/* Carousel Styles */
+.plot-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-item {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.prev-btn, .next-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    color: #3498db;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0 1rem;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #3498db;
+}
+
+.dot:hover {
+    background-color: #999;
+}
+
 /* Footer Styles */
 footer {
     background-color: #2c3e50;
@@ -796,7 +892,42 @@ footer {
     }
 }
 
+/* Add viewport meta tag to ensure proper mobile rendering */
 @media (max-width: 768px) {
+    .chart-container {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .interactive-charts {
+        padding: 0.5rem;
+    }
+    
+    .error-bar-explanation, .interaction-explanation {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .interaction-intro {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .img-caption {
+        font-size: 0.85rem;
+    }
+    
+    .finding-visuals {
+        margin-top: 2rem;
+    }
+    
+    canvas {
+        height: auto !important;
+        max-height: 300px !important;
+        margin: 0 auto;
+    }
+    
+
     .header-content {
         flex-direction: column;
         height: auto;
@@ -858,8 +989,33 @@ footer {
 }
 
 @media (max-width: 480px) {
+    /* Extreme small screen adjustments */
+    html {
+        font-size: 14px;
+    }
+    
+    .tab-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .chart-container {
+        min-height: 300px;
+    }
+    
     .section-title {
         font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Visual tabs optimization for mobile */
+    .visual-tabs {
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    
+    .tab-content {
+        padding: 1rem;
     }
     
     .hero-content h1 {
