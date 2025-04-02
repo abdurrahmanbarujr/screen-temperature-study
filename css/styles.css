@@ -515,12 +515,20 @@ a:hover {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.error-bar-explanation {
+.error-bar-explanation, .interaction-explanation {
     background-color: #f8f9fa;
     border-left: 4px solid #3498db;
     padding: 1rem;
     margin-top: 1rem;
     border-radius: 0 8px 8px 0;
+}
+
+.interaction-intro {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 500;
 }
 
 .interactive-charts {

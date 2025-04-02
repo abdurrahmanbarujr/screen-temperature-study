@@ -207,6 +207,7 @@
                                 <button class="tab-btn" data-tab="test-plot">Test Performance</button>
                                 <button class="tab-btn" data-tab="eye-plot">Eye Metrics</button>
                                 <button class="tab-btn" data-tab="error-bar-charts">Statistical Evidence</button>
+                                <button class="tab-btn" data-tab="interaction-plots">Interaction Effects</button>
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tlx-plot">
@@ -243,6 +244,32 @@
                                         </div>
                                         <div class="error-bar-explanation">
                                             <p>The "I" shaped error bars indicate 95% confidence intervals, showing how confident we can be about the true mean value. Non-overlapping error bars suggest statistically meaningful differences between conditions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="interaction-plots">
+                                    <div class="interactive-charts">
+                                        <p class="interaction-intro">These plots demonstrate how the effect of screen color temperature differs based on participants' starting condition, revealing significant interaction effects.</p>
+                                        <div class="chart-grid">
+                                            <div class="chart-container">
+                                                <canvas id="fixationRateInteractionPlot" width="400" height="300"></canvas>
+                                                <p class="img-caption">Figure 9: Fixation Rate Interaction with Starting Condition</p>
+                                            </div>
+                                            <div class="chart-container">
+                                                <canvas id="blinkFrequencyInteractionPlot" width="400" height="300"></canvas>
+                                                <p class="img-caption">Figure 10: Blink Frequency Interaction with Starting Condition</p>
+                                            </div>
+                                            <div class="chart-container">
+                                                <canvas id="tlxInteractionPlot" width="400" height="300"></canvas>
+                                                <p class="img-caption">Figure 11: TLX Workload Interaction with Starting Condition</p>
+                                            </div>
+                                            <div class="chart-container">
+                                                <canvas id="testScoreInteractionPlot" width="400" height="300"></canvas>
+                                                <p class="img-caption">Figure 12: Test Performance Interaction with Starting Condition</p>
+                                            </div>
+                                        </div>
+                                        <div class="interaction-explanation">
+                                            <p>The diverging lines indicate interaction effects where the impact of color temperature depends on which condition participants started with. Non-parallel lines suggest that prior exposure influences how participants respond to different color temperatures.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -414,6 +441,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-btn');
             let chartsInitialized = false;
+            let interactionChartsInitialized = false;
             
             tabButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -431,6 +459,12 @@
                     if (tabId === 'error-bar-charts' && !chartsInitialized) {
                         initializeCharts();
                         chartsInitialized = true;
+                    }
+
+                    // Initialize interaction plots if interaction tab is clicked
+                    if (tabId === 'interaction-plots' && !interactionChartsInitialized) {
+                        initializeInteractionPlots();
+                        interactionChartsInitialized = true;
                     }
                 });
             });
@@ -450,6 +484,296 @@
                 });
             });
         });
+
+        function initializeInteractionPlots() {
+            const WARM_COLOR = '#FF5722';    // 1900K - Red
+            const NEUTRAL_COLOR = '#FFB74D'; // 4200K - Amber
+            const COOL_COLOR = '#1A99FF';    // 6500K - Blue
+
+            // Create interaction plot for Fixation Rate
+            if (document.getElementById('fixationRateInteractionPlot')) {
+                const ctx = document.getElementById('fixationRateInteractionPlot').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['1900K', '4200K', '6500K'],
+                        datasets: [
+                            {
+                                label: 'Cool Start (6500K)',
+                                data: [4.1, 3.5, 3.2],
+                                borderColor: COOL_COLOR,
+                                backgroundColor: 'rgba(26, 153, 255, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: COOL_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            },
+                            {
+                                label: 'Warm Start (1900K)',
+                                data: [2.3, 2.35, 2.3],
+                                borderColor: WARM_COLOR,
+                                backgroundColor: 'rgba(255, 87, 34, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: WARM_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Fixation Rate by Starting Condition',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw.toFixed(2)} fixations/sec`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Fixation Rate (per second)',
+                                    font: { weight: 'bold' }
+                                },
+                                min: 1.5,
+                                max: 4.5
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Color Temperature Condition',
+                                    font: { weight: 'bold' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Create interaction plot for Blink Frequency
+            if (document.getElementById('blinkFrequencyInteractionPlot')) {
+                const ctx = document.getElementById('blinkFrequencyInteractionPlot').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['1900K', '4200K', '6500K'],
+                        datasets: [
+                            {
+                                label: 'Cool Start (6500K)',
+                                data: [14.2, 17.8, 19.5],
+                                borderColor: COOL_COLOR,
+                                backgroundColor: 'rgba(26, 153, 255, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: COOL_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            },
+                            {
+                                label: 'Warm Start (1900K)',
+                                data: [20.1, 18.6, 15.2],
+                                borderColor: WARM_COLOR,
+                                backgroundColor: 'rgba(255, 87, 34, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: WARM_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Blink Frequency by Starting Condition',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw.toFixed(1)} blinks/min`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Blink Frequency (per minute)',
+                                    font: { weight: 'bold' }
+                                },
+                                min: 12,
+                                max: 22
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Color Temperature Condition',
+                                    font: { weight: 'bold' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Create interaction plot for TLX Score
+            if (document.getElementById('tlxInteractionPlot')) {
+                const ctx = document.getElementById('tlxInteractionPlot').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['1900K', '4200K', '6500K'],
+                        datasets: [
+                            {
+                                label: 'Cool Start (6500K)',
+                                data: [75, 50, 60],
+                                borderColor: COOL_COLOR,
+                                backgroundColor: 'rgba(26, 153, 255, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: COOL_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            },
+                            {
+                                label: 'Warm Start (1900K)',
+                                data: [62, 40, 72],
+                                borderColor: WARM_COLOR,
+                                backgroundColor: 'rgba(255, 87, 34, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: WARM_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'TLX Workload by Starting Condition',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw} (Higher = Worse)`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'TLX Score (Higher = Worse)',
+                                    font: { weight: 'bold' }
+                                },
+                                min: 30,
+                                max: 80
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Color Temperature Condition',
+                                    font: { weight: 'bold' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Create interaction plot for Test Scores
+            if (document.getElementById('testScoreInteractionPlot')) {
+                const ctx = document.getElementById('testScoreInteractionPlot').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['1900K', '4200K', '6500K'],
+                        datasets: [
+                            {
+                                label: 'Cool Start (6500K)',
+                                data: [65, 85, 77],
+                                borderColor: COOL_COLOR,
+                                backgroundColor: 'rgba(26, 153, 255, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: COOL_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            },
+                            {
+                                label: 'Warm Start (1900K)',
+                                data: [73, 82, 68],
+                                borderColor: WARM_COLOR,
+                                backgroundColor: 'rgba(255, 87, 34, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: WARM_COLOR,
+                                pointRadius: 6,
+                                tension: 0.1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Test Performance by Starting Condition',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.raw} (Higher = Better)`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Test Score (Higher = Better)',
+                                    font: { weight: 'bold' }
+                                },
+                                min: 60,
+                                max: 90
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Color Temperature Condition',
+                                    font: { weight: 'bold' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
 
         function initializeTabScatterPlots() {
             const WARM_COLOR = '#FF5722';    // 1900K - Red
