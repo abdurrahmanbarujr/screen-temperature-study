@@ -9,8 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Simple Progress Bar */
+        #scrollProgressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, #FF5722, #FFC107, #2196F3);
+            width: 0%;
+            z-index: 99999;
+            transition: width 0.2s ease;
+        }
+    </style>
 </head>
 <body>
+    <!-- Simple Progress Bar --> 
+    <div id="scrollProgressBar"></div>
+    
     <header class="header-container">
         <div class="header-content">
             <div class="logo-container">
@@ -1174,6 +1190,14 @@
         
         // Initialize the tab functionality, charts, and carousel when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Simple scroll progress calculation
+            window.onscroll = function() {
+                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                let scrolled = (winScroll / height) * 100;
+                document.getElementById("scrollProgressBar").style.width = scrolled + "%";
+            };
+            
             // Initialize tabs
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabPanes = document.querySelectorAll('.tab-pane');
