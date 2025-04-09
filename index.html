@@ -22,6 +22,32 @@
             transition: width 0.2s ease;
         }
     </style>
+    <!-- Additional styles for visitor counter -->    
+    <style>
+        .visitor-counter {
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 0.9rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .visitor-counter i {
+            margin-right: 8px;
+            color: #4CAF50;
+        }
+        
+        .visitor-counter span {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!-- Simple Progress Bar --> 
@@ -431,6 +457,15 @@
             </div>
         </section>
     </main>
+
+    <!-- Visitor Counter Display -->
+    <div class="visitor-counter">
+        <i class="fas fa-users"></i>
+        Today's Visitors: <span id="visitorCount">0</span>
+    </div>
+
+    <!-- Include visitor counter script -->
+    <script src="js/visitor-counter.js"></script>
 
     <footer>
         <div class="footer-content">
